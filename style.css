@@ -1,0 +1,82 @@
+
+body {
+    padding: 0;
+    margin: 0 auto;
+    font-family: 'Rubik', sans-serif;
+}
+
+h1 {
+    color: #252525;
+    text-align: center;
+    font-weight: 500;
+}
+
+form {
+    display:flex;
+    flex-direction: row;
+    margin: 20px;
+    padding-left: 10%;
+    font-family: inherit;
+}
+
+#btn {
+    padding: 10px 15px;
+    font-weight: 500;
+    font-family: inherit;
+}
+
+#color {
+    height: 40px;
+}
+
+#btn:hover,
+#color:hover,
+.text:hover {
+    cursor: pointer;
+}
+
+#mode {
+    margin: 0 20px;
+}
+
+
+#colorContainer {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
+
+.colorColumns {
+    height: 80vh;
+    width: 20%;
+    text-align: center;
+    font-weight: 400;
+}
+
+.text {
+    background: #252525;
+    color: #fff;
+    padding: 1rem 0;
+    border: none;
+    width: 100%;
+}
+
+@media (max-width: 500px) {
+    #colorContainer {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        padding-bottom: 2rem;
+    }
+    
+    .colorColumns {
+        width: 70%;
+        text-align: center;
+        font-weight: 400;
+        justify-content: center;
+        margin: 0 auto;
+        height: 15rem;
+    }
+}

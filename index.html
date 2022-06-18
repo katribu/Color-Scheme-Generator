@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href = "style.css" rel = "stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Color Generator</h1>
+
+    <form id = "form">
+        <input id = "color" type = "color"></input>
+        <select id = "mode">
+            <option value = "monochrome">Monochrome</option>
+            <option value = "monochrome-dark">Monochrome-dark</option>
+            <option value = "monochrome-light">Monochrome-light</option>
+            <option value = "analogic">Analogic</option>
+            <option value = "complement">Complement</option>
+            <option value = "analogic-complement">Ana-Complement</option>
+            <option value = "triad">Triad</option>
+            <option value = "quad">Quad</option>
+        </select>
+
+        <button type = "submit" id = "btn">Generate Scheme</button>
+
+    </form>
+
+    <div id = "colorContainer"> </div>
+</body>
+
+<script src = "index.js"> </script>
+</html>
