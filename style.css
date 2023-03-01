@@ -5,6 +5,10 @@ body {
     font-family: 'Rubik', sans-serif;
 }
 
+main {
+    margin-bottom: 20px;
+}
+
 h1 {
     color: #252525;
     text-align: center;
