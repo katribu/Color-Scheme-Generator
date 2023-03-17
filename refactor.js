@@ -17,19 +17,26 @@ async function renderColorScheme(e){
     let html = ''
     const colors = await getColorScheme()
     const colorsArray = colors.colors
-    const hexValues = colorsArray.map(item => {
+    hexValues = colorsArray.map(item => {
         html += `
-        <div class="colorColumns" style="background:${item.hex.value}" > 
-            <div id=${item.hex.value} class ="text" onclick=${copyToClipboard(item.hex.value)}> ${item.hex.value} </div>
+        <div class="colorColumns tooltip" style="background:${item.hex.value}" > 
+            <button id=${item.hex.value} class="text" onclick="copyToClipboard('${item.hex.value}')">
+             ${item.hex.value} 
+            </button>
         </div>
         `
+   
     })
    
     container.innerHTML = html
-    return hexValues
+
 }
 
-
+function copyToClipboard(id){
+    console.log(id)
+    navigator.clipboard.writeText(id)
+   alert(`${id} copied to clipboard!`)
+}
 
 
 
