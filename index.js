@@ -1,32 +1,42 @@
-let colorArr = []
+const container = document.getElementById('colorContainer')
+const getColors = document.getElementById('form')
 
-document.getElementById("form").addEventListener("submit", function(e){
+getColors.addEventListener("submit", renderColorScheme)
+
+async function getColorScheme(){
+    const color = document.getElementById("color").value.replace("#", "")
+    const mode = document.getElementById("mode").value
+
+    const result = await fetch(`https://www.thecolorapi.com/scheme?hex=${color}&mode=${mode}&count=5`)
+    const data = await result.json()
+    return data
+}
+
+async function renderColorScheme(e){
     e.preventDefault()
-    let html = ""
-
-    let color = document.getElementById("color").value.replace("#", "")
-    let mode = document.getElementById("mode").value
-    fetch(`https://www.thecolorapi.com/scheme?hex=${color}&mode=${mode}&count=5`)
-    .then(res => res.json())
-    .then(data => {
-        
-        colorArr = data.colors
-        colorArr.map(scheme => {
-            
-            html += `
-            <div class = "colorColumns" style = "background:${scheme.hex.value}" > 
-            <button id = "text" class = "text" onclick=${copyToClipboard()}> ${scheme.hex.value} </button>
-            </div>
-            `
-        })
-
-       
-            document.getElementById("colorContainer").innerHTML = html
+    let html = ''
+    const colors = await getColorScheme()
+    const colorsArray = colors.colors
+    hexValues = colorsArray.map(item => {
+        html += `
+        <div class="colorColumns tooltip" style="background:${item.hex.value}" > 
+            <button id=${item.hex.value} class="text" onclick="copyToClipboard('${item.hex.value}')">
+             ${item.hex.value} 
+            </button>
+        </div>
+        `
+   
     })
+   
+    container.innerHTML = html
 
-})
+}
 
-
+function copyToClipboard(id){
+    console.log(id)
+    navigator.clipboard.writeText(id)
+   alert(`${id} copied to clipboard!`)
+}
 
 
 
