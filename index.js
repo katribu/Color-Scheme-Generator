@@ -12,18 +12,14 @@ document.getElementById("form").addEventListener("submit", function(e){
         
         colorArr = data.colors
         colorArr.map(scheme => {
+            
             html += `
-                <div class = "colorColumns" style = "background:${scheme.hex.value}" > 
-                        <button id = "text" class = "text" onclick="copyToClipboard()"> ${scheme.hex.value} </button>
-                </div>
+            <div class = "colorColumns" style = "background:${scheme.hex.value}" > 
+            <button id = "text" class = "text" onclick=${copyToClipboard()}> ${scheme.hex.value} </button>
+            </div>
             `
-            // function copyToClipboard() {
-            //     let copyText = scheme.hex.value
-            //     navigator.clipboard.writeText(copyText).then(() => {
-            //         alert("Copied to clipboard")
-            //     })
-            //   } can't get copy to clipboard to work......
         })
+
        
             document.getElementById("colorContainer").innerHTML = html
     })
